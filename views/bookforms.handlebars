@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Mark Tyers">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="{{host}}/main.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1 style="color:white">Add Books</h1>
+			{{#if authorised}}
+				<a href="/logout">Log out</a>
+			{{else}}
+				<a href="/login">Log in</a>
+			{{/if}}
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+	<main>
+	<p style="color:white"> On this page you can add book to the library by filling in the form below: </p>
+		{{#if authorised}}
+  
+  
+  <form method="post" action="/secure/books" enctype="multipart/form-data">
+ <hr>
+
+    <label for="name"><b style="color:white">Book Name</b></label>
+    <input type="text" placeholder="Enter Book Name" name="name" id="name" required>
+
+    <label for="author"><b style="color:white">Author</b></label>
+    <input type="author" placeholder="Enter Author Name" name="author" id="author" required>
+
+    <label for="number"><b style="color:white">ISBN-13 Number</b></label>
+    <input type="number" placeholder="Enter ISBN-13 Number" name="number" id="number" required>
+    <hr>
+  
+  <p style="color:white">Please press 'Submit' to add your book, you can click here to <a href= "/secure/search">search for some books from our favourites</a>.</p>
+    <button type="submit" class="submitbtn">Submit</button>
+  </div>
+  </form>
+  
+			<p><a href="/secure">secure page</a></p>
+		{{/if}}
+	</main>
+   </iframe>
+  </iframe>
+   <a class="home" href="/">
+     <img src="{{host}}/home.jpeg" alt="Thumbnail" width="200"/>
+   </a>
+  <a class="books" href="/secure/books">
+     <img src="{{host}}/addbook.png" alt="Thumbnail" width="200"/>
+   </a>
+	</body>
+</html>

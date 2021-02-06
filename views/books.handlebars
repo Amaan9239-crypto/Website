@@ -1,0 +1,39 @@
+
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Mark Tyers">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="{{host}}/main.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1 style="color:white">Book Data</h1>
+			{{#if authorised}}
+				<a href="/logout">Log out</a>
+			{{else}}
+				<a href="/login">Log in</a>
+			{{/if}}
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+	<main>
+		<p style="color:white">This page is where the book forms have been added, click <a href= "/secure/bookforms">here</a>to add more books.</p>
+		{{#if authorised}}
+			<p><a href="/secure">secure page</a></p>
+		{{/if}}
+	</main>
+   </iframe>
+ <a class="home" href="/">
+     <img src="{{host}}/home.jpeg" alt="Thumbnail" width="200"/>
+   </a>
+  </iframe>
+	</body>
+</html>

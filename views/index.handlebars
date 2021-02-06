@@ -1,0 +1,48 @@
+
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Mark Tyers">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="{{host}}/main.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1 style="color:white">Library Loans</h1>
+			{{#if authorised}}
+				<a href="/logout">Log out</a>
+			{{else}}
+				<a href="/login">Log in</a>
+			{{/if}}
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+	<main>
+		<p style="color:white"> This is the home page. Users can see it without logging in.</p>
+		{{#if authorised}}
+			<p><a href="/secure">secure page</a></p>
+		{{/if}}
+	</main>
+   </iframe>
+  <a class="search" href="secure/search">
+     <img src="{{host}}/search.jpeg" alt="Thumbnail" width="200"/>
+   </a>
+   <a class="Book " href="secure/bookforms">
+     <img src="{{host}}/formpic.jpeg" alt="Thumbnail" width="200"/>
+   </a>
+ <a class="checkout" href="secure/checkout">
+     <img src="{{host}}/checkoutpic.jpeg" alt="Thumbnail" width="200"/>
+   </a>
+  <a class="books" href="secure/books">
+     <img src="{{host}}/addbook.png" alt="Thumbnail" width="200"/>
+   </a>
+  </iframe>
+	</body>
+</html>
