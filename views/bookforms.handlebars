@@ -8,10 +8,16 @@
 		<meta name="author" content="Mark Tyers">
 		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
 		<script type="module" src="{{host}}/main.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./style2.css" />
 	</head>
 	<body>
 		<header>
-			<h1 style="color:white">Add Books</h1>
+			<h1 style="color:white">Library Loans</h1>
 			{{#if authorised}}
 				<a href="/logout">Log out</a>
 			{{else}}
@@ -24,38 +30,24 @@
 			</aside>
 		{{/if}}
 	<main>
-	<p style="color:white"> On this page you can add book to the library by filling in the form below: </p>
+		<p style="color:white"> This is the home page. Users can see it without logging in.</p>
 		{{#if authorised}}
-  
-  
-  <form method="post" action="/secure/books" enctype="multipart/form-data">
- <hr>
-
-    <label for="name"><b style="color:white">Book Name</b></label>
-    <input type="text" placeholder="Enter Book Name" name="name" id="name" required>
-
-    <label for="author"><b style="color:white">Author</b></label>
-    <input type="author" placeholder="Enter Author Name" name="author" id="author" required>
-
-    <label for="number"><b style="color:white">ISBN-13 Number</b></label>
-    <input type="number" placeholder="Enter ISBN-13 Number" name="number" id="number" required>
-    <hr>
-  
-  <p style="color:white">Please press 'Submit' to add your book, you can click here to <a href= "/secure/search">search for some books from our favourites</a>.</p>
-    <button type="submit" class="submitbtn">Submit</button>
-  </div>
-  </form>
-  
 			<p><a href="/secure">secure page</a></p>
 		{{/if}}
 	</main>
    </iframe>
-  </iframe>
-   <a class="home" href="/">
-     <img src="{{host}}/home.jpeg" alt="Thumbnail" width="200"/>
+  <a class="search" href="secure/search">
+     <img src="{{host}}/search.jpeg" alt="Thumbnail" width="200"/>
    </a>
-  <a class="books" href="/secure/books">
+   <a class="Book " href="secure/bookforms">
+     <img src="{{host}}/formpic.jpeg" alt="Thumbnail" width="200"/>
+   </a>
+ <a class="checkout" href="secure/checkout">
+     <img src="{{host}}/checkoutpic.jpeg" alt="Thumbnail" width="200"/>
+   </a>
+  <a class="books" href="secure/books">
      <img src="{{host}}/addbook.png" alt="Thumbnail" width="200"/>
    </a>
+  </iframe>
 	</body>
 </html>

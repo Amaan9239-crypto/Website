@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Mark Tyers">
+		<link href="{{host}}/style2.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="{{host}}/main.js"></script>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./style2.css" />
+	</head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <! <link rel="stylesheet" href="./style2.css" /> >
+	<body>
+		<header>
+			<h1 style="color:white">Data</h1>
+			{{#if authorised}}
+				<a href="/logout">Log out</a>
+			{{else}}
+				<a href="/login">Log in</a>
+			{{/if}}
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+  <h1 class="bg-light py-4 text-info">
+        <i class="fas fa-plug"></i> Library Management System
+      </h1>
+<div class="d-flex table-data">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Author</th>
+              <th scope="col">ISBN-13 Number</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+         <tbody id="tbody">
+           
+          </tbody> 
+        </table>
+      </div>
+      <div id="notfound"></div>
+	<main>
+		<p style="color:white"> This is the data page, where all data is displayed.</p>
+		{{#if authorised}}
+			 <a href="/secure">
+     <img src="{{host}}/lock.jpg" alt="Thumbnail" width="200"/>
+		{{/if}}
+	</main>
+   </iframe>
+   <a class="books" href="secure/bookpage">
+     <img src="{{host}}/addbook.png" alt="Thumbnail" width="200"/>
+   </a>
+ <a class="home" href="/">
+     <img src="{{host}}/home.jpeg" alt="Thumbnail" width="200"/>
+   </a>
+  </iframe>
+	</body>
+</html>

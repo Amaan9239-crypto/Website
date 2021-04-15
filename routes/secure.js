@@ -37,5 +37,13 @@ router.get('/checkout', async ctx => {
  await ctx.render('checkout', ctx.hbs)
 })
 
+router.get('/bookpage', async ctx => {
+ await ctx.render('bookpage', ctx.hbs)
+})
+
+router.get('/data', async ctx => {
+ await ctx.render('data', ctx.hbs)
+})
+
 
 export default router
