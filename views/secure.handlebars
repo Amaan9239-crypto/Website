@@ -1,35 +1,91 @@
-
 <!doctype html>
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Home Page</title>
-		<meta name="description" content="form to add new books">
-		<meta name="author" content="Mark Tyers">
-		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
-		<script type="module" src="{{host}}/main.js"></script>
-	</head>
-	<body>
-		<header>
-		<h1>Secure Page</h1>
-		<a href="/logout">Log out</a>
-		</header>
-		{{#if msg}}
- 			<aside>
-				<p class="msg">{{msg}}</p>
-			</aside>
-		{{/if}}
-		<main>
-		<p>This is a secure page. Users need to have a valid account and be logged in to see it.</p>
-		<p><a href="/">Home page</a></p>
-		</main>
-    </iframe>
- <a class="books" href="/secure/bookpage">
-     <img src="{{host}}/addbook.png" alt="Thumbnail" width="200"/>
-   </a>
- <a class="data" href="secure/data">
-     <img src="{{host}}/formpic.jpeg" alt="Thumbnail" width="200"/>
-   </a>
-	</body>
+    <head>
+        <meta charset="utf-8">
+        <title>Secure Page</title>
+        <meta name="description" content="form to add new books">
+        <meta name="author" content="Mark Tyers">
+        <link href="style3.css" type="text/css" rel="stylesheet" />
+        <script type="module" src="{{host}}/main.js"></script>
+        
+        <style>
+      .book{
+        text-align: center;
+         padding: 50px;
+          
+      }
+      .lnk{
+        margin: 5px;
+      }
+
+          </style>
+    </head>
+    <body>
+
+       <header class="header">
+  <a href="#default" class="logo">Library Loans</a>
+  <section class="header-right">
+    <a class="active" href="/">Home</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+     <a href="/logout">Logout</a>
+  </section>
+       </header>
+
+<main class="book">
+ 
+<a class="lnk" href="secure/bookpage">
+    <img src="addbook.png" alt="" width="150" height="150"/>
+  </a>
+<a class="lnk" href="bookpage.html">
+    <img src="addbook.jpeg" alt="" width="150" height="150"/>
+  </a>
+  <a class="lnk" href="bookpage.html">
+    <img src="update.jpeg" alt="" width="150" height="150"/>
+  </a>
+  <a class="lnk" href="bookpage.html">
+    <img src="deletebook.jpeg" alt="" width="150" height="150"/>
+  </a>
+</main>
+
+<footer class="footer-distributed">
+ <section class="footer-left">
+ <h3>Library<span> Management System</span></h3>
+ <p class="footer-links">
+ <a href="index.html">Home</a>
+ ·
+ <a href="#">Contact</a>
+ ·
+ <a href="#">About</a>
+ </p>
+ <p class="footer-company-name">Library Management System; 2021</p>
+ </section>
+ <main class="footer-center">
+ <section>
+ <i class="fa fa-map-marker"></i>
+ <p><span>21 Street</span> Coventry, London</p>
+ </section>
+ <section>
+ <i class="fa fa-phone"></i>
+ <p>+92 301 6443947</p>
+ </section>
+ <section>
+ <i class="fa fa-envelope"></i>
+ <p><a href="mailto:support@company.com">amanCh.com</a></p>
+ </section>
+ </main>
+ <main class="footer-right">
+ <p class="footer-company-about">
+ <span>About the Library</span>
+ You can Read Every Book and also you can take away a book for 15 days 
+ </p>
+ <section class="footer-icons">
+ <a href="#"><i class="fa fa-facebook"></i></a>
+ <a href="#"><i class="fa fa-twitter"></i></a>
+ <a href="#"><i class="fa fa-linkedin"></i></a>
+ <a href="#"><i class="fa fa-github"></i></a>
+ </section>
+ </main>
+ </footer>
+    </body>
 </html>
