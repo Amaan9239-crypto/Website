@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e # abort script at first error
+
+echo "PRE-COMMIT"
+
+set +e
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+echo "current branch: ${CURRENT_BRANCH}"
+set -e
+
+EMAIL=$(git config user.email)
+echo "registered email: ${EMAIL}"
+
+if [[ $EMAIL != *"@coventry.ac.uk" ]]
+then
+	echo "invalid email"
+	echo "aborting commit"
+	exit 1
+fi

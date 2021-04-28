@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e # abort script at first error
+
+echo "COMMIT-MSG"
+
+COMMIT_MSG_FILE=$1
+
+MSG=$(< $1)
+echo "commit message: ${MSG}"

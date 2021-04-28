@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e # abort script at first error
+
+echo "PREPARE-COMMIT-MSG"
+
+COMMIT_MSG_FILE=$1
+
+echo "default commit message" > "$COMMIT_MSG_FILE"

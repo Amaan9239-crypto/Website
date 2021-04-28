@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e # abort script at first error
+
+echo "POST-COMMIT"
