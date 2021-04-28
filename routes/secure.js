@@ -1,4 +1,3 @@
-
 import Router from 'koa-router'
 
 const router = new Router({ prefix: '/secure' })
@@ -38,8 +37,10 @@ router.get('/checkout', async ctx => {
 })
 
 router.get('/bookpage', async ctx => {
- await ctx.render('bookpage', ctx.hbs)
+ var barcodeNumber = Math.floor(1000 + Math.random() * 9000000000000);
+ await ctx.render('bookpage', {barcode : barcodeNumber})
 })
+
 
 router.get('/data', async ctx => {
  await ctx.render('data', ctx.hbs)

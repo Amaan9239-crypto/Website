@@ -63,7 +63,10 @@ class Accounts {
 		const record = await this.db.get(sql)
 		const valid = await bcrypt.compare(password, record.pass)
 		if(valid === false) throw new Error(`invalid password for account "${username}"`)
-		return true
+		sql = `SELECT * FROM users WHERE user = "${username}";`
+		const userData = await this.db.get(sql)
+		
+		return userData;
 	}
 
 	async testSetup() {

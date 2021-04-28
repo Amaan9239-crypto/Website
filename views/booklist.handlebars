@@ -30,49 +30,56 @@
   </section>
       </header>
     </main>  
-    {{#if msg}}
+   {{#if msg}}
  			<aside>
 				<p class="msg">{{msg}}</p>
 			</aside>
 		{{/if}}
-    <br>
-    
-    <h2 style="text-align: center;">Add Book</h2>
-     <main class="d-flex justify-content-center"> 
-       
-       <form class="w-50" action="/bookpage" enctype="multipart/form-data" method="post">
-         {{!-- <input type="text" name="userid" id="userid" value="" class="form-control" autocomplete="off" readonly placeholder="ID" /><br> --}}
-         <input type="text" required="required" name="bookName" id="bookName" class="form-control" autocomplete="off" placeholder="Book Name" /><br>
-         
-         <section class="row">
-           <section class="col">
-             <input type="text" required="required" name="bookAuthor" id="bookAuthor" class="form-control m-0" autocomplete="off" placeholder="Author" />
-           </section>
-           <section class="col">
-             <input type="text" required="required" name="isbnNumber" id="isbnNumber" class="form-control m-0" autocomplete="off" placeholder="ISBN-13 Number" />
-           </section>
-         </section>
-         <br>
-         <section class="row">
-           <section class="col">
-             <input type="text" required="required" name="quantity" id="quantity" class="form-control m-0" autocomplete="off" placeholder="Quantity" />
-           </section>
-           <section class="col">
-             <input type="text" required="required" name="barcode" id="barcode" class="form-control m-0" value="{{barcode}}" autocomplete="off" placeholder="Barcode" readonly="readonly"/>
-           </section>
-          <input type="hidden" name="cTime" id="cTime" />
-         </section>
-         
-         <br>
-         <p style="text-align: center;"><input class="btn btn-success" type="submit" value="Save"></p>
-       </form>
-     </main>  
-     
+    <br> 
+    <h2 style="text-align: center;">Book List</h2>
+   <!--  Table -->
+    <main class="d-flex table-data" style="height: 300px; overflow-y:scroll;">
+       <table class="table table-striped">
+         <thead>
+           <tr>
+             <th scope="col">ID</th>
+             <th scope="col">Librarian Name</th>
+             <th scope="col">Book Name</th>
+             <th scope="col">Author</th>
+             <th scope="col">ISBN-13 Number</th>
+             <th scope="col">Quantity</th>
+             <th scope="col">Barcode</th>
+             <th scope="col">Date/Time</th>
+           </tr>
+         </thead>
+        <tbody id="tbody">
+
+         {{#each bookData}}
+              <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.user}}</td>
+                <td>{{this.book_name}}</td>
+                <td>{{this.book_author}}</td>
+                <td>{{this.isbn_number}}</td>
+                <td>{{this.quantity}}</td>
+                <td>{{this.barcode}}</td>
+                <td>{{this.create_at}}</td>
+              </tr>
+          {{/each}}
+
+          
+         </tbody>
+       </table>
+     </main>
+     <main id="notfound"></main>
+   </section>
+ </main>
+
 <footer class="footer-distributed">
  <section class="footer-left">
  <h3>Library<span> Management System</span></h3>
  <p class="footer-links">
- <a href="{{host}}/">Home</a>
+<a href="{{host}}/">Home</a>
  ·
  <a href="#">Contact</a>
  ·
@@ -108,7 +115,4 @@
  </main>
  </footer>
 </body>
- <script>
-   document.getElementById('cTime').value = new Date();
- </script>
-</html> 
+</html>
