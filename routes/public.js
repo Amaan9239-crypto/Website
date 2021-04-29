@@ -1,10 +1,10 @@
-
 import Router from 'koa-router'
 
 const router = new Router()
 
 import Accounts from '../modules/accounts.js'
 import Addbook from '../modules/addbook.js'
+import Borrowbook from '../modules/borrowbook.js'
 const dbName = 'website1.db'
 
 /**
@@ -61,14 +61,14 @@ router.get('/login', async ctx => {
 
 router.post('/login', async ctx => {
 	const account = await new Accounts(dbName)
-	console.log(account)
+	console.log(account);
 	ctx.hbs.body = ctx.request.body
 	try {
 		const body = ctx.request.body
-		const userData = await account.login(body.user, body.pass)
-		ctx.session.authorised = true
-		console.log('user id in login', userData.id)
-		ctx.session.userId = userData.id
+		const userData = await  account.login(body.user, body.pass)
+		ctx.session.authorised = true;
+  console.log("user id in login", userData.id);
+		ctx.session.userId = userData.id;
 		const referrer = body.referrer || '/secure'
 		return ctx.redirect(`${referrer}?msg=you are now logged in...`)
 	} catch(err) {
@@ -90,9 +90,9 @@ router.post('/bookpage', async ctx => {
 	ctx.hbs.body = ctx.request.body
 	try {
 		// call the functions in the module
-		console.log('user id ++++++++++', ctx.session)
+  console.log("user id ++++++++++", ctx.session);
 		await addbook.addBook(ctx.session.userId, ctx.hbs.body.bookName, ctx.request.body.bookAuthor, ctx.request.body.isbnNumber, ctx.request.body.quantity, ctx.request.body.barcode, ctx.request.body.cTime)
-		ctx.redirect('booklist')
+		ctx.redirect(`booklist`)
 	} catch(err) {
 		console.log(err)
 		ctx.hbs.msg = err.message
@@ -101,6 +101,24 @@ router.post('/bookpage', async ctx => {
 		await ctx.render('bookpage', ctx.hbs)
 	} finally {
 		await addbook.close()
+	}
+})
+//borrowpage router
+router.post('/borrowpage', async ctx => {
+	const addborrow = await new Borrowbook(dbName)
+	ctx.hbs.body = ctx.request.body
+	try {
+		// call the functions in the module
+		await addborrow.addBorrow(ctx.request.body.borrowName, ctx.request.body.borrowHash)
+		ctx.redirect(`borrowlist`)
+	} catch(err) {
+		console.log(err)
+		ctx.hbs.msg = err.message
+		ctx.hbs.body = ctx.request.body
+		console.log(ctx.hbs)
+		await ctx.render('borrowpage', ctx.hbs)
+	} finally {
+		await addborrow.close()
 	}
 })
 
@@ -112,7 +130,8 @@ router.get('/booklist', async ctx => {
 	try {
 		// call the functions in the module
 		const bookData = await addbook.getAllBooks(ctx.session.userId)
-		await ctx.render('booklist', { bookData: bookData, msg: 'Book saved successfully!' })
+		console.log("hahahahahahaha: ", bookData)
+		await ctx.render('booklist', { bookData : bookData, msg : 'Book saved successfully!' })
 	} catch(err) {
 		console.log(err)
 		ctx.hbs.msg = err.message
@@ -123,11 +142,32 @@ router.get('/booklist', async ctx => {
 		await addbook.close()
 	}
 })
+//borrow list router
+router.get('/borrowlist', async ctx => {
+
+	const addborrow = await new Borrowbook(dbName)
+	ctx.hbs.body = ctx.request.body
+	try {
+		// call the functions in the module
+		const borrowData = await addborrow.getAllBorrow()
+		console.log("hahahahahahaha: ", borrowData)
+		await ctx.render('borrowlist', { borrowData : borrowData, msg : 'Borrowed Book saved successfully!' })
+	} catch(err) {
+		console.log(err)
+		ctx.hbs.msg = err.message
+		ctx.hbs.body = ctx.request.body
+		console.log(ctx.hbs)
+		await ctx.render('borrowlist', ctx.hbs)
+	} finally {
+		await addborrow.close()
+	}
+})
 
 // router.post('/booklist', async ctx => {
 // 	//{ bookData : allBooks, msg : 'Book saved successfully!' }
 // 	console.log('IO a here ');
 // })
+
 
 
 router.get('/logout', async ctx => {

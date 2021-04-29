@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+        <meta name="description" content="form to add new books">
+        <meta name="author" content="Mark Tyers">
+        <link href="{{host}}/style3.css" type="text/css" rel="stylesheet" />
+        <script type="module" src="{{host}}/main.js"></script>
+ <script src="{{host}}/main2.js" type="module"></script>
+ <title>Library Management System</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+
+
+   integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+ {{!-- <link rel="stylesheet" href="./style.css" /> --}}
+</head>
+<body>
+<main class="header">
+   <section class="container text-center">
+      <header class="header">
+  <a href="index.html" class="logo">Library Loans</a>
+  <section class="header-right">
+    <a class="active" href="{{host}}/">Home</a>
+    <a href="{{host}}/#contact">Contact</a>
+    <a href="{{host}}/#about">About</a>
+     <a href="{{host}}/logout">Logout</a>
+  </section>
+      </header>
+    </main>  
+    {{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>  
+			</aside>
+		{{/if}}
+    <br>
+    
+    <h2 style="text-align: center;">Borrow Page</h2>
+     <main class="d-flex justify-content-center"> 
+       
+       <form class="w-50" action="/borrowpage" enctype="multipart/form-data" method="post">
+        
+         
+         <section class="row">
+           <section class="col">
+             <input type="text" required="required" name="borrowName" id="borrowName" class="form-control m-0" autocomplete="off" placeholder="Student Name" /><!-- student name -->
+           </section>
+           <section class="col">
+             <input type="text" required="required" name="borrowHash" id="borrowHash" class="form-control m-0" autocomplete="off" placeholder="Barcode(hash)" /><!-- hash code=barcode -->
+           </section>
+         </section>
+         <br>
+
+         
+         <br>
+         <p style="text-align: center;"><input class="btn btn-success" type="submit" value="Save"></p>
+       </form>
+     </main>  
+     
+<footer class="footer-distributed">
+ <section class="footer-left">
+ <h3>Library<span> Management System</span></h3>
+ <p class="footer-links">
+ <a href="{{host}}/">Home</a>
+ ·
+ <a href="#">Contact</a>
+ ·
+ <a href="#">About</a>
+ </p>
+ <p class="footer-company-name">Library Management System; 2021</p>
+ </section>
+ <main class="footer-center">
+ <section>
+ <i class="fa fa-map-marker"></i>
+ <p><span>21 Street</span> Coventry, London</p>
+ </section>
+ <section>
+ <i class="fa fa-phone"></i>
+ <p>+92 301 6443947</p>
+ </section>
+ <section>
+ <i class="fa fa-envelope"></i>
+ <p><a href="mailto:support@company.com">amanCh.com</a></p>
+ </section>
+ </main>
+ <main class="footer-right">
+ <p class="footer-company-about">
+ <span>About the Library</span>
+ You can Read Every Book and also you can take away a book for 15 days 
+ </p>
+ <section class="footer-icons">
+ <a href="#"><i class="fa fa-facebook"></i></a>
+ <a href="#"><i class="fa fa-twitter"></i></a>
+ <a href="#"><i class="fa fa-linkedin"></i></a>
+ <a href="#"><i class="fa fa-github"></i></a>
+ </section>
+ </main>
+ </footer>
+</body>
+ 
+</html> 
