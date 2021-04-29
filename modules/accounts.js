@@ -65,8 +65,8 @@ class Accounts {
 		if(valid === false) throw new Error(`invalid password for account "${username}"`)
 		sql = `SELECT * FROM users WHERE user = "${username}";`
 		const userData = await this.db.get(sql)
-		
-		return userData;
+
+		return userData
 	}
 
 	async testSetup() {
