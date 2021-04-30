@@ -21,24 +21,24 @@ router.get('/', async ctx => {
 })
 
 router.get('/search', async ctx => {
- await ctx.render('search', ctx.hbs)
+	await ctx.render('search', ctx.hbs)
 })
 
 router.get('/bookforms', async ctx => {
- await ctx.render('bookforms', ctx.hbs)
+	await ctx.render('bookforms', ctx.hbs)
 })
 
 router.get('/books', async ctx => {
- await ctx.render('books', ctx.hbs)
+	await ctx.render('books', ctx.hbs)
 })
 
 router.get('/checkout', async ctx => {
- await ctx.render('checkout', ctx.hbs)
+	await ctx.render('checkout', ctx.hbs)
 })
 
 router.get('/bookpage', async ctx => {
- var barcodeNumber = Math.floor(1000 + Math.random() * 9000000000000);
- await ctx.render('bookpage', {barcode : barcodeNumber})
+	const barcodeNumber = Math.floor(1000 + Math.random() * 9000000000000)
+	await ctx.render('bookpage', {barcode: barcodeNumber})
 })
 //borrowpage router
 router.get('/borrowpage', async ctx => {
@@ -48,7 +48,7 @@ router.get('/borrowpage', async ctx => {
 
 
 router.get('/data', async ctx => {
- await ctx.render('data', ctx.hbs)
+	await ctx.render('data', ctx.hbs)
 })
 
 

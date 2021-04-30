@@ -6,7 +6,7 @@
         <title>Library Loans</title>
         <meta name="description" content="form to add new books">
         <meta name="author" content="Mark Tyers">
-        <link href="style3.css" type="text/css" rel="stylesheet" />
+        <link href="{{host}}/style3.css" type="text/css" rel="stylesheet" />
         <script type="module" src="{{host}}/main.js"></script>
     </head>
     <body>
@@ -14,10 +14,11 @@
        <main class="header">
   <a href="#default" class="logo">Library Loans</a>
   <section class="header-right">
-    <a class="active" href="/index">Home</a>
+    <a class="active" href="/">Home</a>
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
     <a href="/register">Sign up</a>
+			<a href="{{host}}/secure">Options page</a>
    
    {{#if authorised}}
 				<a href="/logout">Log out</a>
@@ -35,8 +36,11 @@
 		{{/if}}
         
   </section>
+					
 </main>
-
+<h1 style="text-align:center">This is the homepage.</h1>
+<h1 style="text-align:center">	Log in to get full functionality of the website.</h1>
+<h1 style="text-align:center">To add and checkout books sign in and go onto the options page.</h1>
 
 <footer class="footer-distributed">
  <section class="footer-left">
@@ -53,21 +57,21 @@
  <main class="footer-center">
  <section>
  <i class="fa fa-map-marker"></i>
- <p><span>21 Street</span> Coventry, London</p>
+ <p><span>Priory St, CV1 5FB</span> Coventry, England</p>
  </section>
  <section>
  <i class="fa fa-phone"></i>
- <p>+92 301 6443947</p>
+ <p>024 7688 7688</p>
  </section>
  <section>
  <i class="fa fa-envelope"></i>
- <p><a href="mailto:support@company.com">amanCh.com</a></p>
+ <p><a href="mailto:support@company.com">rahmancm@uni.coventry.ac.uk</a></p>
  </section>
  </main>
  <main class="footer-right">
  <p class="footer-company-about">
  <span>About the Library</span>
- You can Read Every Book and also you can take away a book for 15 days 
+ 5001CEM Semester 2 project.  
  </p>
  <section class="footer-icons">
  <a href="#"><i class="fa fa-facebook"></i></a>

@@ -1,9 +1,8 @@
 /** @module Addbook */
 
-import bcrypt from 'bcrypt-promise'
+
 import sqlite from 'sqlite-async'
 
-const saltRounds = 10
 
 /**
  * Accounts
@@ -29,27 +28,31 @@ class Borrowbook {
 
 	/**
 	 * add a new book
-	 * @param {String} borrowName 
-	 * @param {String} borrowHash 
+	 * @param {String} borrowName
+	 * @param {String} borrowHash
 	 * @returns {Boolean} returns true if the new user has been added
 	 */
 
 	//add borrow function
 	async addBorrow(borrowName, borrowHash) {
 
-		let sql = `INSERT INTO borrow(name, hash) VALUES("${borrowName}", "${borrowHash}")`
+		const sql = `INSERT INTO borrow(name, hash) VALUES("${borrowName}", "${borrowHash}")`
 		await this.db.run(sql)
 		return true
 	}
 	// function to get borrowed data
 	async getAllBorrow() {
-		//let sql = `SELECT books.*, users.user FROM  books INNER JOIN users ON users.id = books.user_id where books.user_id = "${userId}";`
-		let sql = `SELECT borrow.id as borrowid, borrow.name, borrow.hash, books.* FROM  borrow LEFT JOIN books ON borrow.hash = books.barcode`
+		//let sql = `SELECT books.*, users.user FROM  books INNER JOIN users ON users.id = books.user_id where
+		//books.user_id = "${userId}";`
+		const sql =
+								'SELECT borrow.id as borrowid,\
+borrow.name, borrow.hash,\
+books.* FROM  borrow LEFT JOIN books ON borrow.hash = books.barcode'
 		const borrowData = await this.db.all(sql)
-  		console.log("borrowdatalist: ", borrowData);
-		return borrowData;
+  		console.log('borrowdatalist: ', borrowData)
+		return borrowData
 	}
- 
+
 	async close() {
 		await this.db.close()
 	}

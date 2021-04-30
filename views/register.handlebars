@@ -6,21 +6,23 @@
 		<title>Create an Account</title>
 		<meta name="description" content="form to add new books">
 		<meta name="author" content="Mark Tyers">
-		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<link href="{{host}}/style3.css" type="text/css" rel="stylesheet" />
 		<script type="module" src="{{host}}/main.js"></script>
 	</head>
-	<body>
 		<header>
-		<h1>Create an Account</h1>
-		<a href="/login">Log in</a>
+<main class="header">
+  <a href="#default" class="logo">Library Loans</a>
+  <section class="header-right">
+    <a class="active" href="/">Home</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="/login">Log in</a>
 		</header>
-		{{#if msg}}
- 			<aside>
-				<p class="msg">{{msg}}</p>
-			</aside>
-		{{/if}}
-		<main>
-		<form action="/register" enctype="multipart/form-data" method="post">
+	 
+   
+	<body>
+		
+				<form action="/register" enctype="multipart/form-data" method="post">
 			<p>
 				<label for="user">Username</label><br />
 				<input type="text" name="user" placeholder="your preferred username (no spaces)" value="{{body.user}}">
@@ -35,6 +37,53 @@
 			</p>
 			<p><input type="submit" value="Create"></p>
 		</form>
+	
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+		<main>
+			<footer class="footer-distributed">
+ <section class="footer-left">
+ <h3>Library<span> Management System</span></h3>
+ <p class="footer-links">
+ <a href="index.html">Home</a>
+ ·
+ <a href="#">Contact</a>
+ ·
+ <a href="#">About</a>
+ </p>
+ <p class="footer-company-name">Library Management System; 2021</p>
+ </section>
+ <main class="footer-center">
+ <section>
+ <i class="fa fa-map-marker"></i>
+ <p><span>Priory St, CV1 5FB</span> Coventry, England</p>
+ </section>
+ <section>
+ <i class="fa fa-phone"></i>
+ <p>024 7688 7688</p>
+ </section>
+ <section>
+ <i class="fa fa-envelope"></i>
+ <p><a href="mailto:support@company.com">rahmancm@uni.coventry.ac.uk</a></p>
+ </section>
+ </main>
+ <main class="footer-right">
+ <p class="footer-company-about">
+ <span>About the Library</span>
+ 5001CEM Semester 2 project.  
+ </p>
+ <section class="footer-icons">
+ <a href="#"><i class="fa fa-facebook"></i></a>
+ <a href="#"><i class="fa fa-twitter"></i></a>
+ <a href="#"><i class="fa fa-linkedin"></i></a>
+ <a href="#"><i class="fa fa-github"></i></a>
+ </section>
+ </main>
+ </footer>
+
 		</main>
 	</body>
 </html>
